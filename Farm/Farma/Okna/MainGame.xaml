@@ -1,0 +1,57 @@
+﻿<Window x:Class="Farm.Farma.Okna.MainGame"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Farm.Farma.Okna"
+        xmlns:kontrolki="clr-namespace:Farm.Farma.Kontrolki"
+        mc:Ignorable="d"
+        xmlns:viewmodels="clr-namespace:Farm.Farma.Klasy.Viewmodel" d:DataContext="{d:DesignInstance Type=viewmodels:MainViewModel}"
+        Title="MainGame" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="9*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <TabControl Grid.Row="0">
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Farma"></TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <kontrolki:Farm DataContext="{Binding Mode=OneWay}" Grid.Row="0"></kontrolki:Farm>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Zagroda"></TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Sklep"></TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Menu"></TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <kontrolki:UserMenu></kontrolki:UserMenu>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Admin"></TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+            </TabItem>
+        </TabControl>
+        <Label Grid.Row="1" Content="{Binding LoginViewModel.CurrentUser.Name}" ContentStringFormat="Obecny Użytkownik: {0}" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+    </Grid>
+</Window>
