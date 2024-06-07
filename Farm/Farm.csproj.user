@@ -16,13 +16,7 @@
     <Compile Update="Farma\Kontrolki\MainGame.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Farma\Kontrolki\PlantField.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="Farma\Kontrolki\Farm.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Farma\Kontrolki\PlantTemplate.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Farma\Kontrolki\Shop.xaml.cs">
@@ -49,12 +43,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Farma\Kontrolki\MainGame.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Farma\Kontrolki\PlantField.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Farma\Kontrolki\PlantTemplate.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Farma\Kontrolki\Shop.xaml">
