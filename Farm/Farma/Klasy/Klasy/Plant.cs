@@ -33,7 +33,7 @@ namespace Farm.Farma.Klasy.Klasy
         public int PlantYield { get { return _plantyield; } set { _plantyield = value; RaisePropertyChanged("PlantYield"); } }
         private int _plantyield;
         private int randmult;
-        private int totalTimetoHarvest;
+        public int totalTimetoHarvest { get; set; }
         Random random = new Random();
         public bool IsPlanted { get { return _isplanted; } set { _isplanted = value; RaisePropertyChanged("IsPlanted"); } }
 
@@ -49,11 +49,17 @@ namespace Farm.Farma.Klasy.Klasy
             _farmingtimer.Tick += _farmingtimer_Tick;
             _farmingtimer.Interval = TimeSpan.FromSeconds(1);
             PlantBackground = new SolidColorBrush(Colors.SaddleBrown);
-            WaterLevel = 100;
-            _farmingtimer.Start();
-            IsPlanted = true;
+            _farmingtimer.Stop();
         }
-
+        public void Sow()
+        {
+            if (!_farmingtimer.IsEnabled)
+            {
+                WaterLevel = 100;
+                _farmingtimer.Start();
+                IsPlanted = true;
+            }
+        }
         private void _farmingtimer_Tick(object? sender, EventArgs e)
         {
             if (WaterLevel <= 0)
@@ -87,21 +93,11 @@ namespace Farm.Farma.Klasy.Klasy
         }
         public void Harvest()
         {
-            randmult = random.Next(0, 5);
+            randmult = random.Next(1, 5);
             TimeToFarm = totalTimetoHarvest;
-            PlantYield += randmult * Price / 50;
+            PlantYield = randmult * Price / 2;
 
 
-        }
-        public void Sow()
-        {
-            if (!_farmingtimer.IsEnabled)
-            {
-                _farmingtimer.Start();
-                IsPlanted = true;
-            }
-
-            
         }
         public void Water()
         {

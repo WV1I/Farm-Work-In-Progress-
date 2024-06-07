@@ -19,14 +19,7 @@
                     </StackPanel>
                 </TabItem.Header>
                 <local:Farm DataContext="{Binding Mode=OneWay}" Grid.Row="0"></local:Farm>
-                
-            </TabItem>
-            <TabItem>
-                <TabItem.Header>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Zagroda"></TextBlock>
-                    </StackPanel>
-                </TabItem.Header>
+
             </TabItem>
             <TabItem>
                 <TabItem.Header>
@@ -34,6 +27,7 @@
                         <TextBlock Text="Sklep"></TextBlock>
                     </StackPanel>
                 </TabItem.Header>
+                <local:Shop></local:Shop>
             </TabItem>
             <TabItem>
                 <TabItem.Header>
@@ -52,7 +46,7 @@
             </TabItem>
         </TabControl>
         <Label Grid.Row="1" Content="{Binding LoginViewModel.CurrentUser.Name}" ContentStringFormat="Obecny Użytkownik: {0}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-        <Label Grid.Row="1" Content="{Binding LoginViewModel.CurrentUser.Coins}" ContentStringFormat="Liczba Monet: {0}" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+        <Label Grid.Row="1" Content="{Binding LoginViewModel.FarmViewModel.curUser.Coins}" ContentStringFormat="Liczba Monet: {0}" HorizontalAlignment="Right" VerticalAlignment="Center"/>
         
     </Grid>
 </UserControl>

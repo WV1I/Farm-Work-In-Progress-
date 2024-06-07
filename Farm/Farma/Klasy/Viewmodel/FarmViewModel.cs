@@ -1,5 +1,6 @@
 ﻿using Farm.Farma.Gracz.Konto;
 using Farm.Farma.Klasy.Klasy;
+using Farm.Farma.Kontrolki;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using System;
@@ -15,12 +16,15 @@ namespace Farm.Farma.Klasy.Viewmodel
     public class FarmViewModel : ObservableObject
     {
         private PlantList _plants;
-
+        public Konto curUser { get; set; }
         public FarmViewModel() 
         { 
             
         }
-
+        public FarmViewModel(Konto CurrentUser)
+        {
+            curUser = CurrentUser;
+        }
         public ICommand PlantCommand
         { get { return new RelayCommand<Plant>(PlantExecute, CanPlantExecute()); } }
         public ICommand HarvestCommand
@@ -38,6 +42,8 @@ namespace Farm.Farma.Klasy.Viewmodel
             if(plant.IsPlanted == false && plant.TimeToFarm <= 0)
             {
                 plant.Harvest();
+                curUser.Coins = curUser.Coins + plant.PlantYield;
+                curUser.CurrentPlants.Remove(plant);
             }
 
         }

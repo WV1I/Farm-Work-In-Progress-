@@ -53,7 +53,7 @@ namespace Farm {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Farm;V1.0.0.0;component/farma/kontrolki/animalspot.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Farm;component/farma/kontrolki/animalspot.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\Farma\Kontrolki\AnimalSpot.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

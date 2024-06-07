@@ -54,7 +54,7 @@ namespace Farm.Farma.Okna {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Farm;V1.0.0.0;component/farma/okna/adminpanel.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Farm;component/farma/okna/adminpanel.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\Farma\Okna\AdminPanel.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

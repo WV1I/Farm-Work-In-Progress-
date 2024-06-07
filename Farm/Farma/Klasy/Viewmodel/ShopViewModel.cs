@@ -14,36 +14,40 @@ namespace Farm.Farma.Klasy.Viewmodel
 {
     public class ShopViewModel : ObservableObject
     {
-        public ShopViewModel(PlantList Plants) 
-        { 
-        
-        }
+
         public Konto CurrentShopUser { get; set; }
 
         private int _coins;
-        private PlantList _plants;
+        public PlantList PlantsForSale { get; set; } 
         
         public int Coins { get { return _coins; } set { _coins = value; RaisePropertyChanged("Coins"); } }
 
-
+        public ShopViewModel(Konto CurrentUser)
+        {
+            CurrentShopUser = CurrentUser;
+            PlantsForSale = new PlantList();
+            PlantsForSale.Add(new Plant("Pomidor", 40, 20));
+            PlantsForSale.Add(new Plant("Arbuz", 200, 60));
+            PlantsForSale.Add(new Plant("Banan", 70, 40));
+            PlantsForSale.Add(new Plant("Winogrona", 100, 70));
+        }
         public ICommand BuyCommand
-        { get { return new RelayCommand<Plant>(BuyExecute, CanSellExecute()); } }
-        public ICommand SellCommand
-        { get { return new RelayCommand<Plant>(SellExecute, CanSellExecute()); } }
-
+        { get { return new RelayCommand<Plant>(BuyExecute, CanBuyExecute()); } }
         void BuyExecute(Plant plant)
         {
-            CurrentShopUser.Coins -= plant.Price;
-            CurrentShopUser.CurrentPlants.Add(plant);
+            if(CurrentShopUser.Coins >= plant.Price)
+            {
+                var tempPlant = new Plant(plant.PlantName, plant.Price, plant.TimeToFarm);
+                CurrentShopUser.Coins -= plant.Price;
+                CurrentShopUser.CurrentPlants.Add(tempPlant);
+                tempPlant.Sow();
+            }
+
         }
-        void SellExecute(Plant plant)
+
+        bool CanBuyExecute()
         {
-            CurrentShopUser.Coins += plant.Price;
-            CurrentShopUser.CurrentPlants.Remove(plant);
-        }
-        bool CanBuyExecute(Plant Plant)
-        {
-            if(CurrentShopUser.Coins >= Plant.Price)
+            if(CurrentShopUser.Coins > 0)
             {
                 return true;
             }

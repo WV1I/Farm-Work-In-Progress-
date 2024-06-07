@@ -17,16 +17,19 @@ namespace Farm.Farma.Gracz.Konto
         public string Name { get { return name; } set { name = value; RaisePropertyChanged("Name"); } }
         public int Coins { get { return coins; } set { coins = value; RaisePropertyChanged("Coins"); } }
         public bool IsAdmin { get { return isadmin; } set { isadmin = value; RaisePropertyChanged("IsAdmin"); }  }
-        public PlantList CurrentPlants { get; set; } = new PlantList();
+        public PlantList CurrentPlants { get { return curplants; } set { curplants = value; RaisePropertyChanged("CurrentPlants"); } }
+        private PlantList curplants;
 
         public Konto(string Name, string Password) 
         { 
             name = Name;
             password = Password;
+            CurrentPlants = new PlantList();
         }
         public Konto(bool IsAdmin) :  base()
         {
             isadmin = IsAdmin;
+
         }
 
         public bool ValidatePassword(string Password)

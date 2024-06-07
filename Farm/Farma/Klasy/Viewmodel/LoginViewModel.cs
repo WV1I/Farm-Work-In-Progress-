@@ -29,6 +29,8 @@ namespace Farm.Farma.Klasy.Viewmodel
 
         public string Username { get { return _username; } set { _username = value; RaisePropertyChanged("Username"); } }
 
+        public FarmViewModel FarmViewModel { get; set; }
+        public ShopViewModel ShopViewModel { get; set; }
         public LoginViewModel(AccountList Konta) 
         { 
             this.Konta = Konta;
@@ -96,13 +98,11 @@ namespace Farm.Farma.Klasy.Viewmodel
             if(Konta.ValidateAccount(_username, value))
             {
                 CurrentUser = Konta.GetKonto(_username);
-                CurrentUser.CurrentPlants.Add(new Klasy.Plant("TESTPomidor", 5, 20));
-                CurrentUser.CurrentPlants.Add(new Klasy.Plant("TESTWinogrono", 5, 25));
-                CurrentUser.CurrentPlants.Add(new Klasy.Plant("TESTPieczarka", 5, 25));
-                CurrentUser.CurrentPlants.Add(new Klasy.Plant("TESTP", 5, 25));
                 
                 LoginMessage = "";
                 IsLogged = true;
+                FarmViewModel = new FarmViewModel(CurrentUser);
+                ShopViewModel = new ShopViewModel(CurrentUser);
             }
             else
             {

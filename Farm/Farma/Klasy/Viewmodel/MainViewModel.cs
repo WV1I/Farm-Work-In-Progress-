@@ -15,14 +15,14 @@ namespace Farm.Farma.Klasy.Viewmodel
         public PlantList Plants { get; set; }
         public LoginViewModel LoginViewModel { get; set; }
         public Konto CurrentUser { get { return LoginViewModel.CurrentUser; } set { CurrentUser = value; RaisePropertyChanged("CurrentUser"); } }
-        public FarmViewModel FarmViewModel { get; set; }
+
 
         public MainViewModel()
         {
             AccountList = new AccountList();
             Plants = new PlantList();
             LoginViewModel = new LoginViewModel(AccountList);
-            FarmViewModel = new FarmViewModel();
+
 
         }
     }
