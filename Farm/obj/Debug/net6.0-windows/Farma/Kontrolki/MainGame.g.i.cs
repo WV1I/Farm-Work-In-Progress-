@@ -53,7 +53,7 @@ namespace Farm.Farma.Kontrolki {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Farm;component/farma/kontrolki/maingame.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Farm;V1.0.0.0;component/farma/kontrolki/maingame.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\Farma\Kontrolki\MainGame.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

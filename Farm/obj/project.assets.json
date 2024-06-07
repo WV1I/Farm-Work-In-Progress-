@@ -7295,11 +7295,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\agawl\\source\\repos\\Farm\\Farm\\Farm.csproj",
+      "projectUniqueName": "C:\\Users\\agawl\\source\\repos\\Farm-Work-In-Progress-\\Farm\\Farm.csproj",
       "projectName": "Farm",
-      "projectPath": "C:\\Users\\agawl\\source\\repos\\Farm\\Farm\\Farm.csproj",
+      "projectPath": "C:\\Users\\agawl\\source\\repos\\Farm-Work-In-Progress-\\Farm\\Farm.csproj",
       "packagesPath": "C:\\Users\\agawl\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\agawl\\source\\repos\\Farm\\Farm\\obj\\",
+      "outputPath": "C:\\Users\\agawl\\source\\repos\\Farm-Work-In-Progress-\\Farm\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

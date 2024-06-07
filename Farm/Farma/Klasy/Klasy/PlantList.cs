@@ -17,7 +17,7 @@ namespace Farm.Farma.Klasy.Klasy
         { 
             
         }
-        public Plant CurrentPlant { get { return cur_plant; } set { cur_plant = value;} }
+        public Plant CurrentPlant { get { return cur_plant; } set { cur_plant = value; } }
         private Plant cur_plant;
         public ICommand PlantCommand
         { get { return new RelayCommand(PlantExecute, CanPlantExecute()); } }

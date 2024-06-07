@@ -14,7 +14,7 @@ namespace Farm.Farma.Klasy.Viewmodel
         public AccountList AccountList { get; set; }
         public PlantList Plants { get; set; }
         public LoginViewModel LoginViewModel { get; set; }
-        public Konto CurrentUser { get { return LoginViewModel.CurrentUser; } set { LoginViewModel.CurrentUser = value; FarmViewModel.CurrentFarmer = value; } }
+        public Konto CurrentUser { get { return LoginViewModel.CurrentUser; } set { CurrentUser = value; RaisePropertyChanged("CurrentUser"); } }
         public FarmViewModel FarmViewModel { get; set; }
 
         public MainViewModel()
